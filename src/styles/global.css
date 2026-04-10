@@ -192,6 +192,7 @@ body {
   font-synthesis: none;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
