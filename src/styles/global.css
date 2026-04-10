@@ -27,19 +27,6 @@
   --selection: rgba(0, 0, 0, 0.08);
   --code-bg: rgba(0, 0, 0, 0.04);
   --mark: #1E5BE0;
-
-  /* Syntax Theme  */
-  --astro-code-foreground: rgba(0, 0, 0, 0.85);
-  --astro-code-background: rgba(0, 0, 0, 0.03);
-  --astro-code-token-constant: rgba(0, 0, 0, 0.85);
-  --astro-code-token-string: rgba(0, 0, 0, 0.85);
-  --astro-code-token-comment: rgba(0, 0, 0, 0.35);
-  --astro-code-token-keyword: rgba(0, 0, 0, 0.55);
-  --astro-code-token-parameter: rgba(0, 0, 0, 0.85);
-  --astro-code-token-function: rgba(0, 0, 0, 0.85);
-  --astro-code-token-string-expression: rgba(0, 0, 0, 0.55);
-  --astro-code-token-punctuation: rgba(0, 0, 0, 0.55);
-  --astro-code-token-link: rgba(0, 0, 0, 0.55);
 }
 
 * {
@@ -61,11 +48,6 @@ p {
     padding-top: 1rem;
     letter-spacing: var(--spacing-m);
 }
-
-.short-intro {
-line-height: 1.25rem;
-}
-
 
 a,
 .deactivated {
