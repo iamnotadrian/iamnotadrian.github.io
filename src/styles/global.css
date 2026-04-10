@@ -62,7 +62,8 @@ p {
     letter-spacing: var(--spacing-m);
 }
 
-a, .deactivated {
+a,
+.deactivated {
   color: var(--mark);
   text-decoration-color: var(--mark);
   text-underline-offset: 3px;
@@ -72,10 +73,6 @@ a, .deactivated {
   position: relative;
   cursor: not-allowed;
   text-decoration: line-through;
-}
-
-.deactivated::after {
-  pointer-events: none;
 }
 
 .deactivated::after {
@@ -92,9 +89,10 @@ a, .deactivated {
   opacity: 0;
   pointer-events: none;
   white-space: nowrap;
+  transition: opacity 0.15s ease;
 }
 
-.deactivated:hover::after {
+.deactivated.show-tooltip::after {
   opacity: 1;
 }
 
@@ -201,6 +199,10 @@ body {
     padding: 4rem 1.35rem 1.35rem;
     margin: 0 auto;
   }
+
+  header h1 {
+    margin-top: 0;
+}
 }
 
 @media (prefers-reduced-motion: reduce) {

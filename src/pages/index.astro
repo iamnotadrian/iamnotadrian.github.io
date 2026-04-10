@@ -42,4 +42,32 @@ import "../styles/global.css";
 			</p>
 		</main>
 	</body>
+
+	<script>
+		const tooltipTimeouts = new WeakMap();
+
+		document.querySelectorAll(".deactivated").forEach((link) => {
+			link.addEventListener("click", (event) => {
+				event.preventDefault();
+
+				link.classList.remove("show-tooltip");
+
+				requestAnimationFrame(() => {
+					link.classList.add("show-tooltip");
+				});
+
+				const existingTimeout = tooltipTimeouts.get(link);
+				if (existingTimeout) {
+					clearTimeout(existingTimeout);
+				}
+
+				const timeout = setTimeout(() => {
+					link.classList.remove("show-tooltip");
+					tooltipTimeouts.delete(link);
+				}, 1200);
+
+				tooltipTimeouts.set(link, timeout);
+			});
+		});
+	</script>
 </html>
