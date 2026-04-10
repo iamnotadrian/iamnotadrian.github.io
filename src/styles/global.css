@@ -1,0 +1,252 @@
+:root {
+  /* Min Content Width */
+  --content-width: 25rem;
+
+  /* Typography */
+  --sans: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: Besley, Baskerville, Georgia, 'Times New Roman', Times, serif;
+  --mono: 'SF Mono', SFMono-Regular, monospace;
+
+  --font-size-s: 0.9rem;
+  --font-size-m: 1rem;
+  --font-size-l: 1.25rem;
+
+  --font-weight-light: 350;
+  --font-weight-regular: 400;
+  --font-weight-bold: 500;
+
+  --spacing-s: -0.08em;
+  --spacing-m: -0.02em;
+
+  /* Light Mode Colors (Default) */
+  --bg: #ffffff;
+  --text-primary: rgba(0, 0, 0, 0.85);
+  --text-secondary: rgba(0, 0, 0, 0.4);
+  --text-tertiary: rgba(0, 0, 0, 0.24);
+  --border: rgba(0, 0, 0, 0.1);
+  --selection: rgba(0, 0, 0, 0.08);
+  --code-bg: rgba(0, 0, 0, 0.04);
+  --mark: #1E5BE0;
+
+  /* Syntax Theme  */
+  --astro-code-foreground: rgba(0, 0, 0, 0.85);
+  --astro-code-background: rgba(0, 0, 0, 0.03);
+  --astro-code-token-constant: rgba(0, 0, 0, 0.85);
+  --astro-code-token-string: rgba(0, 0, 0, 0.85);
+  --astro-code-token-comment: rgba(0, 0, 0, 0.35);
+  --astro-code-token-keyword: rgba(0, 0, 0, 0.55);
+  --astro-code-token-parameter: rgba(0, 0, 0, 0.85);
+  --astro-code-token-function: rgba(0, 0, 0, 0.85);
+  --astro-code-token-string-expression: rgba(0, 0, 0, 0.55);
+  --astro-code-token-punctuation: rgba(0, 0, 0, 0.55);
+  --astro-code-token-link: rgba(0, 0, 0, 0.55);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-l);
+}
+
+p {
+    font-weight: var(--font-weight-regular);
+    font-family: var(--sans);
+    color: var(--text-primary);
+    font-size: var(--font-size-m);
+    padding-top: 1rem;
+    letter-spacing: var(--spacing-m);
+}
+
+a, .deactivated {
+  color: var(--mark);
+  text-decoration-color: var(--mark);
+  text-underline-offset: 3px;
+}
+
+.deactivated {
+  position: relative;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.deactivated::after {
+  pointer-events: none;
+}
+
+.deactivated::after {
+  content: "Coming soon";
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--mark);
+  color: #fff;
+  font-size: var(--font-size-s);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.deactivated:hover::after {
+  opacity: 1;
+}
+
+.highlight {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-style: italic;
+}
+
+header h1 {
+    margin-top: 4rem;
+    padding-bottom: var(--spacing-s);
+}
+
+header p{
+    color: var(--text-secondary);
+    font-size: var(--font-size-s);
+    padding: 0;
+}
+
+/* Light Mode (Explicit) */
+html.light {
+  --bg: #ffffff;
+  --text-primary: rgba(0, 0, 0, 0.85);
+  --text-secondary: rgba(0, 0, 0, 0.4);
+  --text-tertiary: rgba(0, 0, 0, 0.24);
+  --border: rgba(0, 0, 0, 0.1);
+  --selection: rgba(0, 0, 0, 0.08);
+  --code-bg: rgba(0, 0, 0, 0.04);
+  --mark: #1E5BE0;
+
+  /* Syntax Theme  */
+  --astro-code-foreground: rgba(0, 0, 0, 0.85);
+  --astro-code-background: rgba(0, 0, 0, 0.03);
+  --astro-code-token-constant: rgba(0, 0, 0, 0.85);
+  --astro-code-token-string: rgba(0, 0, 0, 0.85);
+  --astro-code-token-comment: rgba(0, 0, 0, 0.35);
+  --astro-code-token-keyword: rgba(0, 0, 0, 0.5);
+  --astro-code-token-parameter: rgba(0, 0, 0, 0.85);
+  --astro-code-token-function: rgba(0, 0, 0, 0.85);
+  --astro-code-token-string-expression: rgba(0, 0, 0, 0.55);
+  --astro-code-token-punctuation: rgba(0, 0, 0, 0.55);
+  --astro-code-token-link: rgba(0, 0, 0, 0.55);
+}
+
+/* Dark Mode (Explicit) */
+html.dark {
+  --bg: #1c1c1c;
+  --text-primary: rgba(255, 255, 255, 0.9);
+  --text-secondary: rgba(255, 255, 255, 0.4);
+  --text-tertiary: rgba(255, 255, 255, 0.24);
+  --border: rgba(255, 255, 255, 0.1);
+  --selection: rgba(255, 255, 255, 0.08);
+  --code-bg: rgba(255, 255, 255, 0.04);
+  --mark: #1E5BE0;
+
+  /* Syntax Theme  */
+  --astro-code-foreground: rgba(255, 255, 255, 0.9);
+  --astro-code-background: rgba(255, 255, 255, 0.03);
+  --astro-code-token-constant: rgba(255, 255, 255, 0.9);
+  --astro-code-token-string: rgba(255, 255, 255, 0.9);
+  --astro-code-token-comment: rgba(255, 255, 255, 0.35);
+  --astro-code-token-keyword: rgba(255, 255, 255, 0.55);
+  --astro-code-token-parameter: rgba(255, 255, 255, 0.9);
+  --astro-code-token-function: rgba(255, 255, 255, 0.9);
+  --astro-code-token-string-expression: rgba(255, 255, 255, 0.55);
+  --astro-code-token-punctuation: rgba(255, 255, 255, 0.55);
+  --astro-code-token-link: rgba(255, 255, 255, 0.55);
+}
+
+html {
+  background-color: var(--bg);
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease-out;
+}
+
+body {
+  font-family: var(--sans);
+  font-feature-settings: 'ss03' 1;
+  font-size: var(--font-size-m);
+  line-height: 1.75;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  letter-spacing: var(--spacing-m);
+  margin: 0 auto;
+  width: 100%;
+  overscroll-behavior-y: contain;
+  text-autospace: normal;
+  text-spacing-trim: space-first;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+body[data-centered='true'] {
+  padding: 6rem 1.5rem 1.5rem;
+}
+
+body[data-centered='false'] {
+  padding: 6rem 0 1.5rem;
+  margin: 0 1.5rem 0 8rem;
+}
+
+@media (max-width: 768px) {
+  body[data-centered='true'],
+  body[data-centered='false'] {
+    padding: 4rem 1.35rem 1.35rem;
+    margin: 0 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* handrawn circle */
+.handdrawn-badge {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	min-width: 4rem;
+	padding: 1rem 3rem;
+}
+
+.handdrawn-badge__text {
+	position: relative;
+	z-index: 1;
+	white-space: nowrap;
+	font-size: var(--font-size-m);
+	line-height: 1;
+	color: var(--text-primary);
+}
+
+.handdrawn-badge__ring {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}

@@ -1,6 +1,12 @@
 ---
-
+import "../styles/global.css";
 ---
+
+<style>
+	body {
+		width: var(--content-width);
+	}
+</style>
 
 <html lang="en">
 	<head>
@@ -9,9 +15,31 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>iam(not)adrian</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<header>
+			<h1>iam(not)adrian</h1>
+			<p class="short-intro">
+				I focus on solving everyday problems, <span class="highlight"
+					>mostly</span
+				> around money.
+			</p>
+		</header>
+		<main class="intro">
+			<p>
+				I am currently building <span class="deactivated"
+					>Greenbacks</span
+				>, a money management app for students, and <span
+					class="deactivated">Krisenkompass</span
+				>, a web and mobile platform for financial knowledge and
+				simulations.
+			</p>
+			<p>
+				I study business informatics and work as a working student in
+				process optimization at <a href="https://www.nafa.de">NAFA</a> to
+				pay my bills, have a nice chat with colleagues, and continue learning.
+			</p>
+		</main>
 	</body>
 </html>
