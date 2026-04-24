@@ -3,72 +3,81 @@ import "../styles/global.css";
 ---
 
 <style>
-	body {
-		width: var(--content-width);
-	}
+  body {
+    width: var(--content-width);
+  }
 </style>
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>iam(not)adrian</title>
-	</head>
-	<body>
-		<header>
-			<h1>iam(not)adrian</h1>
-			<p class="highlight">code - design - finances</p>
-		</header>
-		<main class="intro">
-			<p>
-				I focus on solving everyday problems
-				<span class="highlight">mostly related to finances</span> through
-				code and design.
-			</p>
-			<p>
-				I am currently building <span class="deactivated"
-					>Greenbacks</span
-				>, a money management app for students, and <span
-					class="deactivated">Krisenkompass</span
-				>, a web and mobile platform for financial knowledge and
-				simulations.
-			</p>
-			<p>
-				I study business informatics and work as a working student in
-				process optimization at <a href="https://www.nafa.de">NAFA</a> to
-				pay my bills, have a nice chat with colleagues, and continue learning.
-			</p>
-		</main>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>iam(not)adrian</title>
+  </head>
 
-	<script>
-		const tooltipTimeouts = new WeakMap();
+  <body>
+    <header>
+      <h1>iam(not)adrian</h1>
+      <p class="highlight">code - design - finances</p>
+    </header>
 
-		document.querySelectorAll(".deactivated").forEach((link) => {
-			link.addEventListener("click", (event) => {
-				event.preventDefault();
+    <main class="intro">
+      <p>
+        I focus on solving everyday problems,
+        <span class="highlight">mainly in personal finance</span>, through code
+        and design.
+      </p>
 
-				link.classList.remove("show-tooltip");
+      <p>
+        I study business informatics and work as a working student in process
+        optimization at <a href="https://www.nafa.de">NAFA</a>, where I gain
+        practical experience and continue learning.
+      </p>
 
-				requestAnimationFrame(() => {
-					link.classList.add("show-tooltip");
-				});
+      <p>
+        I am currently building
+        <a href="https://github.com/iamnotadrian/NumbersGame">NumbersGame</a>, a
+        mental arithmetic app, and <span class="deactivated">Greenbacks</span>,
+        a money management app for students, to improve my skills in Swift and
+        SwiftUI.
+      </p>
 
-				const existingTimeout = tooltipTimeouts.get(link);
-				if (existingTimeout) {
-					clearTimeout(existingTimeout);
-				}
+      <p>
+        In my free time, I enjoy
+        <abbr title="Computer Aided Design">CAD</abbr> and
+        <abbr title="Architectural Visualization">ArchViz</abbr>.
+      </p>
+    </main>
+  </body>
 
-				const timeout = setTimeout(() => {
-					link.classList.remove("show-tooltip");
-					tooltipTimeouts.delete(link);
-				}, 1200);
+  <script>
+    const tooltipTimeouts = new WeakMap();
 
-				tooltipTimeouts.set(link, timeout);
-			});
-		});
-	</script>
+    document.querySelectorAll(".deactivated").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        link.classList.remove("show-tooltip");
+
+        requestAnimationFrame(() => {
+          link.classList.add("show-tooltip");
+        });
+
+        const existingTimeout = tooltipTimeouts.get(link);
+        if (existingTimeout) {
+          clearTimeout(existingTimeout);
+        }
+
+        const timeout = setTimeout(() => {
+          link.classList.remove("show-tooltip");
+          tooltipTimeouts.delete(link);
+        }, 1200);
+
+        tooltipTimeouts.set(link, timeout);
+      });
+    });
+  </script>
 </html>
