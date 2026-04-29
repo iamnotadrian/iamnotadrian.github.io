@@ -4,12 +4,12 @@
 
   /* Typography */
   --sans: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
-  --serif: 'Times New Roman', Times, serif;
-  --mono: 'SF Mono', SFMono-Regular, monospace;
+  --serif: "Times New Roman", Times, serif;
+  --mono: "SF Mono", SFMono-Regular, monospace;
 
   --font-size-s: 0.9rem;
   --font-size-m: 1rem;
-  --font-size-l: 1.25rem;
+  --font-size-l: 1.2rem;
 
   --font-weight-light: 350;
   --font-weight-regular: 400;
@@ -26,34 +26,44 @@
   --border: rgba(0, 0, 0, 0.1);
   --selection: rgba(0, 0, 0, 0.08);
   --code-bg: rgba(0, 0, 0, 0.04);
-  --mark: #1E5BE0;
+  --mark: #1e5be0;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: var(--content-width);
 }
 
 h1 {
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-l);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-l);
+}
+
+h2 {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-l);
+  margin-bottom: 1rem;
 }
 
 p {
-    font-weight: var(--font-weight-regular);
-    font-family: var(--sans);
-    color: var(--text-primary);
-    font-size: var(--font-size-m);
-    padding-top: 1rem;
-    letter-spacing: var(--spacing-m);
+  font-weight: var(--font-weight-regular);
+  font-family: var(--sans);
+  color: var(--text-primary);
+  font-size: var(--font-size-m);
+  padding-top: 1rem;
+  letter-spacing: var(--spacing-m);
 }
 
 a,
 .deactivated {
   color: var(--mark);
   text-decoration-color: var(--mark);
-  text-underline-offset: 3px;
+  text-underline-offset: 2px;
 }
 
 .deactivated {
@@ -84,20 +94,14 @@ a,
 }
 
 .highlight {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    font-style: italic;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
 }
 
 header h1 {
-    margin-top: 4rem;
-    padding-bottom: var(--spacing-s);
-}
-
-header p{
-    color: var(--text-secondary);
-    font-size: var(--font-size-s);
-    padding: 0;
+  margin-top: 4rem;
+  padding-bottom: var(--spacing-s);
 }
 
 /* Light Mode (Explicit) */
@@ -109,7 +113,7 @@ html.light {
   --border: rgba(0, 0, 0, 0.1);
   --selection: rgba(0, 0, 0, 0.08);
   --code-bg: rgba(0, 0, 0, 0.04);
-  --mark: #1E5BE0;
+  --mark: #1e5be0;
 
   /* Syntax Theme  */
   --astro-code-foreground: rgba(0, 0, 0, 0.85);
@@ -166,7 +170,7 @@ body {
 
   header h1 {
     margin-top: 0;
-}
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -180,28 +184,28 @@ body {
 
 /* handrawn circle */
 .handdrawn-badge {
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: fit-content;
-	min-width: 4rem;
-	padding: 1rem 3rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 4rem;
+  padding: 1rem 3rem;
 }
 
 .handdrawn-badge__text {
-	position: relative;
-	z-index: 1;
-	white-space: nowrap;
-	font-size: var(--font-size-m);
-	line-height: 1;
-	color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  font-size: var(--font-size-m);
+  line-height: 1;
+  color: var(--text-primary);
 }
 
 .handdrawn-badge__ring {
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	overflow: visible;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }

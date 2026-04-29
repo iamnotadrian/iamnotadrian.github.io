@@ -1,10 +1,98 @@
 ---
 import "../styles/global.css";
+
+import { Image } from "astro:assets";
+import myImage from "/assets/ChairRender.png";
 ---
 
 <style>
   body {
     width: var(--content-width);
+  }
+  .projects {
+    margin-top: 2rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  .project-image {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .project-click {
+    cursor: pointer;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.25s ease;
+  }
+
+  .modal img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    border-radius: 0;
+    transform: scale(1);
+    transition: transform 0.25s ease;
+  }
+
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .hidden img {
+    transform: scale(0.96);
+  }
+
+  #close {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    line-height: 1;
+    background: rgba(200, 200, 200, 0.2);
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  #close:hover {
+    transform: translateX(-50%) scale(1.15);
   }
 </style>
 
@@ -19,65 +107,47 @@ import "../styles/global.css";
   </head>
 
   <body>
+    <div id="modal" class="modal hidden">
+      <span id="close">×</span>
+      <img id="modal-img" />
+    </div>
     <header>
       <h1>iam(not)adrian</h1>
-      <p class="highlight">code - design - finances</p>
     </header>
 
-    <main class="intro">
-      <p>
-        I focus on solving everyday problems,
-        <span class="highlight">mainly in personal finance</span>, through code
-        and design.
-      </p>
+    <main>
+      <section class="intro">
+        <p>
+          i build apps, care about day-to-day finance, touch grass and
+          occasionally dive into
+          <abbr title="Computer Aided Design">CAD</abbr>
+          and
+          <abbr title="Architectural Visualization">ArchViz</abbr>.
+        </p>
 
-      <p>
-        I study business informatics and work as a working student in process
-        optimization at <a href="https://www.nafa.de">NAFA</a>, where I gain
-        practical experience and continue learning.
-      </p>
+        <p>
+          I am currently building <span class="deactivated">Greenbacks</span>, a
+          simple money management app for students.
+        </p>
 
-      <p>
-        I am currently building
-        <a href="https://github.com/iamnotadrian/NumbersGame">NumbersGame</a>, a
-        mental arithmetic app, and <span class="deactivated">Greenbacks</span>,
-        a money management app for students, to improve my skills in Swift and
-        SwiftUI.
-      </p>
+        <p>
+          I study business informatics and work as a working student in process
+          optimization at <a href="https://www.nafa.de">NAFA</a>.
+        </p>
+      </section>
 
-      <p>
-        In my free time, I enjoy
-        <abbr title="Computer Aided Design">CAD</abbr> and
-        <abbr title="Architectural Visualization">ArchViz</abbr>.
-      </p>
+      <section class="projects">
+        <h2>ArchViz & CAD</h2>
+        <div class="grid">
+          <div class="project">
+            <div class="project-click" data-src={myImage.src}>
+              <Image src={myImage} alt="Rendered Chair" class="project-image" />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 
-  <script>
-    const tooltipTimeouts = new WeakMap();
-
-    document.querySelectorAll(".deactivated").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        link.classList.remove("show-tooltip");
-
-        requestAnimationFrame(() => {
-          link.classList.add("show-tooltip");
-        });
-
-        const existingTimeout = tooltipTimeouts.get(link);
-        if (existingTimeout) {
-          clearTimeout(existingTimeout);
-        }
-
-        const timeout = setTimeout(() => {
-          link.classList.remove("show-tooltip");
-          tooltipTimeouts.delete(link);
-        }, 1200);
-
-        tooltipTimeouts.set(link, timeout);
-      });
-    });
-  </script>
+  <script src="../script/scripts.js"></script>
 </html>
