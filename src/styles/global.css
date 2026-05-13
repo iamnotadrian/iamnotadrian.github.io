@@ -84,23 +84,6 @@ a:hover {
   text-decoration: line-through;
 }
 
-.deactivated::after {
-  content: "Coming soon";
-  position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--mark);
-  color: #fff;
-  font-size: var(--font-size-s);
-  padding: 0.25rem 0.75rem;
-  border-radius: 4px;
-  opacity: 0;
-  pointer-events: none;
-  white-space: nowrap;
-  transition: opacity 0.15s ease;
-}
-
 .deactivated.show-tooltip::after {
   opacity: 1;
 }
@@ -191,11 +174,11 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding: 4rem 1.35rem 1.35rem;
+    padding: 2rem 1.35rem 1.35rem;
     margin: 0 auto;
   }
 
-  header h1 {
+  header {
     margin-top: 0;
   }
 }
