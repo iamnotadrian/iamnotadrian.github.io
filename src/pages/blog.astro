@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+
+import { Image } from "astro:assets";
+import myImage from "/assets/ChairRender.png";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>iam(not)adrian</title>
+  </head>
+
+  <body>
+    <div id="modal" class="modal hidden">
+      <span id="close">×</span>
+      <img id="modal-img" />
+    </div>
+    <header>
+     <div>
+      <h1>iam(not)adrian</h1>
+      <p class="updated">Updated May 2026</p>
+     </div>
+    <a href="">Back</a>
+    </header>
+
+    <main>
+      <section class="intro">
+<p>
+All of these things affect both my life and yours. So this is simply my space where I let my thoughts run free because a lot is happening in the world. 
+Maybe you’ll find something useful for your own life.
+</p>
+      </section>
+
+      <section class="stuff" aria-labelledby="stuff-title">
+        <h2 id="stuff-title" class="stuff-title">Posts</h2>
+
+        <div class="stuff-list">
+          <article class="stuff-row">
+            <time class="stuff-year" datetime="2026">2026</time>
+            <div class="stuff-entry">
+              <a class="stuff-link" href="#">
+                New post <span class="new-badge">coming soon</span>
+              </a>
+             <!-- <span class="stuff-category"></span>-->
+            </div>
+            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+
+  <script src="../script/scripts.js"></script>
+</html>

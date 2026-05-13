@@ -21,23 +21,28 @@ import myImage from "/assets/ChairRender.png";
       <img id="modal-img" />
     </div>
     <header>
+     <div>
       <h1>iam(not)adrian</h1>
+      <p class="updated">Updated May 2026</p>
+     </div>
+     <a href="./blog">Blog</a>
+    <!-- <a href="">github</a>-->
     </header>
 
     <main>
       <section class="intro">
-        <p>
-          i build apps, care about day-to-day finance, touch grass and
-          occasionally dive into
-          <abbr title="Computer Aided Design">CAD</abbr>
-          and
-          <abbr title="Architectural Visualization">ArchViz</abbr>.
-        </p>
+<p>
+  I build apps that solve practical, everyday problems, with a particular interest in finance and personal money management.
+</p>
 
-        <p>
-          I am currently building <span class="deactivated">Greenbacks</span>, a
-          simple money management app for students.
-        </p>
+<p>
+  I’m especially interested in day-to-day finance, personal money management, and simple tools that make complex decisions feel clearer. 
+  Outside of software, I like to touch grass and occasionally explore archviz.
+</p>
+
+<p>
+  I write a blog where I occasionally share thoughts on AI, finance, and everyday life.
+</p>
 
         <p>
           I study business informatics and work as a working student in process
@@ -45,14 +50,49 @@ import myImage from "/assets/ChairRender.png";
         </p>
       </section>
 
-      <section class="projects">
-        <h2>ArchViz & CAD</h2>
-        <div class="grid">
-          <div class="project">
-            <div class="project-click" data-src={myImage.src}>
-              <Image src={myImage} alt="Rendered Chair" class="project-image" />
+      <section class="stuff" aria-labelledby="stuff-title">
+        <h2 id="stuff-title" class="stuff-title">Projects</h2>
+
+        <div class="stuff-list">
+          <article class="stuff-row">
+            <time class="stuff-year" datetime="2026">2026</time>
+            <div class="stuff-entry">
+              <a class="stuff-link" href="https://lily-eight-psi.vercel.app/">
+                Lily <span class="new-badge">building</span>
+              </a>
+              <span class="stuff-category">Bicycle passport app</span>
             </div>
-          </div>
+            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
+          </article>
+
+          <article class="stuff-row">
+            <span class="stuff-year" aria-hidden="true"></span>
+            <div class="stuff-entry">
+              <a class="stuff-link" href="#"
+                >Greenbacks <span class="new-badge">building</span>
+              </a>
+              <span class="stuff-category">Student finance app</span>
+            </div>
+            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
+          </article>
+
+          <article class="stuff-row">
+            <time class="stuff-year" datetime="2025">2025</time>
+            <div class="stuff-entry">
+              <a class="stuff-link" href="#">nobs</a>
+              <span class="stuff-category">Calorie tracking app concept</span>
+            </div>
+            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
+          </article>
+
+          <article class="stuff-row">
+            <span class="stuff-year" aria-hidden="true"></span>
+            <div class="stuff-entry">
+              <a class="stuff-link" href="#">Don't Frogget To Drink</a>
+              <span class="stuff-category">Hydration app concept</span>
+            </div>
+            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
+          </article>
         </div>
       </section>
     </main>
