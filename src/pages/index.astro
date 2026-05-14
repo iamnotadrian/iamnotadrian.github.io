@@ -16,10 +16,6 @@ import myImage from "/assets/ChairRender.png";
   </head>
 
   <body>
-    <div id="modal" class="modal hidden">
-      <span id="close">×</span>
-      <img id="modal-img" />
-    </div>
     <header>
       <div>
         <h1>iam(not)adrian</h1>
@@ -31,13 +27,19 @@ import myImage from "/assets/ChairRender.png";
 
     <main>
       <section class="intro">
-        <p>I design and build apps that solve practical, everyday problems.</p>
+        <p>
+          I <span class="mark">design</span> and <span class="mark"
+            >build apps</span
+          > that solve everyday problems.
+        </p>
 
         <p>
           I’m especially interested in day-to-day finance, personal money
-          management, and simple tools that make complex decisions feel clearer.
-          Outside of software, I like to touch grass and occasionally explore
-          archviz.
+          management, and simple tools that make life easier. Outside of
+          software, I like to touch grass and explore
+          <abbr>CAD</abbr> (Computer Aided Design) and <span class="mark"
+            >Blender</span
+          >.
         </p>
 
         <!--  <p>
@@ -47,7 +49,8 @@ import myImage from "/assets/ChairRender.png";
 
         <p>
           I study business informatics and work as a working student in process
-          optimization at <a href="https://www.nafa.de">NAFA</a>.
+          optimization <span class="mark">@</span>
+          <a href="https://www.nafa.de" class="mark">NAFA</a>.
         </p>
       </section>
 
@@ -59,22 +62,20 @@ import myImage from "/assets/ChairRender.png";
             <time class="stuff-year" datetime="2026">2026</time>
             <div class="stuff-entry">
               <a class="stuff-link" href="https://lily-eight-psi.vercel.app/">
-                Lily <span class="new-badge">building</span>
+                Lily <span class="new-badge">new</span>
               </a>
-              <span class="stuff-category">Bicycle passport app</span>
+              <p class="stuff-description">Bicycle passport app</p>
             </div>
-            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
           </article>
 
           <article class="stuff-row">
             <span class="stuff-year" aria-hidden="true"></span>
             <div class="stuff-entry deactivated">
               <a class="stuff-link" href="#"
-                >Greenbacks <span class="new-badge">building</span>
+                >Greenbacks <span class="new-badge">new</span>
               </a>
-              <span class="stuff-category">Student finance app</span>
+              <p class="stuff-description">Personal finance app for students</p>
             </div>
-            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
           </article>
 
           <article class="stuff-row">
@@ -85,9 +86,10 @@ import myImage from "/assets/ChairRender.png";
                 href="https://www.figma.com/design/r9PFXKM2PUFkqZlGSctW5O/nobs.?node-id=0-1&t=HhSQc5tb2wIG8Y0y-1"
                 >nobs</a
               >
-              <span class="stuff-category">Calorie tracking app concept</span>
+              <p class="stuff-description">
+                Minimal calorie tracking app (concept)
+              </p>
             </div>
-            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
           </article>
 
           <article class="stuff-row">
@@ -96,11 +98,12 @@ import myImage from "/assets/ChairRender.png";
               <a
                 class="stuff-link"
                 href="https://www.figma.com/design/pPpI3iTtfeMbrtXiuhA0xz/Don-t-Frogget-To-Drink?node-id=0-1&t=K1vy5hv180YPnqDi-1"
-                >Don't Frogget To Drink</a
+                >Frogget To Drink</a
               >
-              <span class="stuff-category">Hydration app concept</span>
+              <p class="stuff-description">
+                Playful hydration tracker (concept)
+              </p>
             </div>
-            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
           </article>
 
           <article class="stuff-row">
@@ -111,13 +114,14 @@ import myImage from "/assets/ChairRender.png";
                 href="https://www.figma.com/design/XrsuPKc7Xauq80LtMqxLof/Herbstprojekt?node-id=0-1&t=Vwl93n53Ur2BlpwZ-1"
                 >Moodbit</a
               >
-              <span class="stuff-category">Mental well being app concept</span>
+              <p class="stuff-description">Mental well being (concept)</p>
             </div>
-            <!--<time class="stuff-date" datetime="2025-05-23">2025</time>-->
           </article>
         </div>
       </section>
     </main>
+
+    <footer>Have a great day!</footer>
   </body>
 
   <script src="../script/scripts.js"></script>
