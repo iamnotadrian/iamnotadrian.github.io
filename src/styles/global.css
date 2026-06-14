@@ -106,6 +106,10 @@ footer {
   color: var(--text-primary);
 }
 
+.footer-note {
+  padding-bottom: 0;
+}
+
 .intro {
   margin-bottom: 2rem;
 }
@@ -283,7 +287,7 @@ body {
 }
 
 .stuff-row--action {
-  grid-template-columns: minmax(0, 4fr) 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
 }
 
@@ -349,6 +353,7 @@ body {
 .stuff-arrow {
   position: relative;
   z-index: 2;
+  justify-self: end;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -426,4 +431,17 @@ body {
   color: var(--text-tertiary);
   font-size: var(--font-size-s);
   line-height: 1.35rem;
+}
+
+.time-compare {
+  margin: 0;
+}
+
+.time-compare__offset {
+  padding: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.25rem;
+  letter-spacing: 0;
 }
