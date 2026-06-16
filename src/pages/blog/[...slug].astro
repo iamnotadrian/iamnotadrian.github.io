@@ -2,10 +2,7 @@
 import { existsSync, statSync } from "node:fs";
 import path from "node:path";
 import { getCollection, render } from "astro:content";
-import {
-  isPublicOrExternalUrl,
-  resolveBlogAsset,
-} from "../../lib/blogAssets";
+import { isPublicOrExternalUrl, resolveBlogAsset } from "../../lib/blogAssets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
@@ -30,9 +27,10 @@ const postDownload = downloadSource
 const hasLocalDownload = Boolean(
   downloadSource && !isPublicOrExternalUrl(downloadSource),
 );
-const downloadFileName = downloadSource && hasLocalDownload
-  ? downloadSource.replace(/^\.?\//, "")
-  : undefined;
+const downloadFileName =
+  downloadSource && hasLocalDownload
+    ? downloadSource.replace(/^\.?\//, "")
+    : undefined;
 const downloadPath = downloadFileName
   ? path.join(process.cwd(), "src/content/blog", post.id, downloadFileName)
   : undefined;
@@ -43,9 +41,10 @@ const downloadName = (downloadFileName ?? downloadSource)
 const downloadExtension = downloadName
   ? path.extname(downloadName).replace(".", "").toUpperCase()
   : undefined;
-const downloadSize = downloadPath && existsSync(downloadPath)
-  ? `${Math.max(1, Math.ceil(statSync(downloadPath).size / 1024))} Kb`
-  : undefined;
+const downloadSize =
+  downloadPath && existsSync(downloadPath)
+    ? `${Math.max(1, Math.ceil(statSync(downloadPath).size / 1024))} Kb`
+    : undefined;
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat("de-DE", {
@@ -172,9 +171,9 @@ const shareOptions = [
         <span>Share</span>
         <span class="share-link__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" focusable="false">
-            <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7" />
-            <path d="M12 3v13" />
-            <path d="m7 8 5-5 5 5" />
+            <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path>
+            <path d="M12 3v13"></path>
+            <path d="m7 8 5-5 5 5"></path>
           </svg>
         </span>
       </button>

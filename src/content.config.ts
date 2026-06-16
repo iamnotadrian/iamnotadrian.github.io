@@ -7,14 +7,12 @@ const blog = defineCollection({
     pattern: "**/*.{md,mdx}",
     base: "./src/content/blog",
     generateId: ({ entry }) =>
-      entry
-        .replace(/\/index\.mdx?$/, "")
-        .replace(/\.mdx?$/, ""),
+      entry.replace(/\/index\.mdx?$/, "").replace(/\.mdx?$/, ""),
   }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    pubDate: z.date(),
+    pubDate: z.date().optional(),
     author: z.string().optional(),
     image: z.string().optional(),
     downloadFile: z.string().optional(),
