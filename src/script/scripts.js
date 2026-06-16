@@ -1,8 +1,7 @@
-const tooltipTimeouts = new WeakMap();
 const germanyTimeZone = "Europe/Berlin";
-
 const footerGreetingEl = document.querySelector("[data-footer-greeting]");
 const timeDifferenceEl = document.querySelector("[data-time-difference]");
+const tooltipTimeouts = new WeakMap();
 
 const getTimeZoneOffsetMinutes = (date, timeZone) => {
   const parts = new Intl.DateTimeFormat("en-US", {
@@ -74,8 +73,10 @@ const updateTimeComparison = () => {
   timeDifferenceEl.textContent = formatUtcDifference(localOffset - germanyOffset);
 };
 
-updateTimeComparison();
-setInterval(updateTimeComparison, 60 * 1000);
+if (footerGreetingEl || timeDifferenceEl) {
+  updateTimeComparison();
+  setInterval(updateTimeComparison, 60 * 1000);
+}
 
 document.querySelectorAll(".deactivated").forEach((link) => {
   link.addEventListener("click", (event) => {
@@ -101,34 +102,83 @@ document.querySelectorAll(".deactivated").forEach((link) => {
   });
 });
 
-const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modal-img");
-const closeBtn = document.getElementById("close");
+const shareModal = document.querySelector("[data-share-modal]");
+const shareOpenButton = document.querySelector("[data-share-open]");
+const shareCloseButton = document.querySelector("[data-share-close]");
+const shareCopyButton = document.querySelector("[data-share-copy]");
+let focusedElementBeforeShareModal = null;
 
-if (
-  modal instanceof HTMLElement &&
-  modalImg instanceof HTMLImageElement &&
-  closeBtn instanceof HTMLElement
-) {
-  document.querySelectorAll(".project-click").forEach((el) => {
-    el.addEventListener("click", () => {
-      if (!(el instanceof HTMLElement)) return;
+const closeShareModal = () => {
+  if (!(shareModal instanceof HTMLElement)) {
+    return;
+  }
 
-      const src = el.dataset.src;
-      if (!src) return;
+  shareModal.hidden = true;
+  shareOpenButton?.setAttribute("aria-expanded", "false");
 
-      modalImg.src = src;
-      modal.classList.remove("hidden");
-    });
+  if (focusedElementBeforeShareModal instanceof HTMLElement) {
+    focusedElementBeforeShareModal.focus();
+  }
+};
+
+const openShareModal = () => {
+  if (!(shareModal instanceof HTMLElement)) {
+    return;
+  }
+
+  focusedElementBeforeShareModal = document.activeElement;
+  shareModal.hidden = false;
+  shareOpenButton?.setAttribute("aria-expanded", "true");
+
+  if (shareCloseButton instanceof HTMLElement) {
+    shareCloseButton.focus();
+  }
+};
+
+if (shareOpenButton instanceof HTMLElement) {
+  shareOpenButton.addEventListener("click", openShareModal);
+}
+
+if (shareCloseButton instanceof HTMLElement) {
+  shareCloseButton.addEventListener("click", closeShareModal);
+}
+
+if (shareModal instanceof HTMLElement) {
+  shareModal.addEventListener("click", (event) => {
+    if (event.target === shareModal) {
+      closeShareModal();
+    }
   });
 
-  closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
+  document.addEventListener("keydown", (event) => {
+    if (!shareModal.hidden && event.key === "Escape") {
+      closeShareModal();
+    }
   });
+}
 
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.classList.add("hidden");
+if (shareCopyButton instanceof HTMLElement) {
+  const defaultCopyText = shareCopyButton.textContent?.trim() || "Link kopieren";
+
+  shareCopyButton.addEventListener("click", async () => {
+    const shareUrl = shareCopyButton.dataset.shareUrl;
+
+    if (!shareUrl) {
+      return;
+    }
+
+    try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard API unavailable");
+      }
+
+      await navigator.clipboard.writeText(shareUrl);
+      shareCopyButton.textContent = "Kopiert";
+      setTimeout(() => {
+        shareCopyButton.textContent = defaultCopyText;
+      }, 1200);
+    } catch {
+      window.prompt("Link kopieren", shareUrl);
     }
   });
 }

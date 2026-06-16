@@ -7,8 +7,10 @@ const blogAssets = import.meta.glob(
   },
 ) as Record<string, string>;
 
-const isPublicOrExternalUrl = (path: string) =>
-  path.startsWith("/") || path.startsWith("http://") || path.startsWith("https://");
+export const isPublicOrExternalUrl = (path: string) =>
+  path.startsWith("/") ||
+  path.startsWith("http://") ||
+  path.startsWith("https://");
 
 export const resolveBlogAsset = (postId: string, assetPath: string) => {
   if (isPublicOrExternalUrl(assetPath)) {
