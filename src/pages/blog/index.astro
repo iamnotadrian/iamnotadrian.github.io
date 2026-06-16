@@ -1,0 +1,81 @@
+---
+import { getCollection } from "astro:content";
+import { resolveBlogAsset } from "../../lib/blogAssets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("de-DE", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+---
+
+<BaseLayout
+  title="Blog | iam(not)adrian"
+  description="Gedanken, Checklisten und Notizen zu Websites, Design und digitalen Produkten."
+  currentPath="/blog/"
+  lang="de"
+>
+  <section class="intro blog-intro">
+    <p>
+      The space where I let my thoughts run free because a lot is happening in
+      the world.
+    </p>
+
+    <p>
+      Maybe you’ll find something useful for your own life. If so, share it with
+      friends, family or colleagues or just save it in your notes app of choice.
+    </p>
+  </section>
+
+  <section class="stuff blog-section" aria-labelledby="blog-title">
+    <h2 id="blog-title" class="stuff-title">Posts</h2>
+
+    <div class="blog-grid">
+      {
+        posts.map((post) => (
+          <article class="blog-card">
+            <a class="blog-card__media" href={`/blog/${post.id}/`} aria-hidden="true" tabindex="-1">
+              <img
+                src={resolveBlogAsset(post.id, post.data.image)}
+                alt=""
+                width="640"
+                height="360"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+
+            <div class="blog-card__body">
+              <time class="stuff-year" datetime={post.data.pubDate.toISOString()}>
+                {formatDate(post.data.pubDate)}
+              </time>
+
+              <h3 class="blog-card__title">
+                <a class="stuff-link" href={`/blog/${post.id}/`}>
+                  {post.data.title}
+                  {post.data.featured && <span class="new-badge">featured</span>}
+                </a>
+              </h3>
+
+              <p class="blog-card__description">{post.data.description}</p>
+
+              <ul class="tag-list" aria-label="Tags">
+                {post.data.tags.map((tag) => <li>{tag}</li>)}
+              </ul>
+            </div>
+
+            <a class="stuff-arrow" href={`/blog/${post.id}/`} aria-label={`Open ${post.data.title}`}>
+              &rarr;
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
