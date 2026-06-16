@@ -6,8 +6,6 @@ tags: [self-improvement, habits, health, students, lifestyle]
 featured: true
 ---
 
-# Steps to Reclaim Your Life
-
 You only have one life. That sounds obvious, but most people do not live like it. They wake up tired, scroll before thinking, rush through the day, react to other people’s expectations, and then wonder why they feel behind, distracted, or disconnected.
 
 Reclaiming your life does not require a dramatic transformation. It starts with small decisions repeated consistently: sleeping better, designing your environment, protecting your attention, moving your body, reading, learning, creating, and spending time with people who make you better.
